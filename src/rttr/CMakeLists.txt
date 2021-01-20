@@ -70,17 +70,6 @@ if (${BUILD_RTTR_DYNAMIC})
 
     set_compiler_warnings(rttr_core)
     
-    if (BUILD_INSTALLER)
-        install(TARGETS rttr_core EXPORT rttr_targets
-                RUNTIME       DESTINATION ${RTTR_RUNTIME_INSTALL_DIR}
-                LIBRARY       DESTINATION ${RTTR_LIBRARY_INSTALL_DIR}
-                ARCHIVE       DESTINATION ${RTTR_ARCHIVE_INSTALL_DIR}
-                FRAMEWORK     DESTINATION ${RTTR_FRAMEWORK_INSTALL_DIR})
-
-        # install also pdb file
-        install_pdb_files(rttr_core)
-    endif()
-
 endif()
 
 if (BUILD_STATIC)
@@ -118,13 +107,6 @@ if (BUILD_STATIC)
     
     set_compiler_warnings(rttr_core_lib)
 
-    if (BUILD_INSTALLER)
-        install(TARGETS rttr_core_lib EXPORT rttr_targets
-                RUNTIME       DESTINATION ${RTTR_RUNTIME_INSTALL_DIR}
-                LIBRARY       DESTINATION ${RTTR_LIBRARY_INSTALL_DIR}
-                ARCHIVE       DESTINATION ${RTTR_ARCHIVE_INSTALL_DIR}
-                FRAMEWORK     DESTINATION ${RTTR_FRAMEWORK_INSTALL_DIR})
-    endif()
 endif()
 
 if (BUILD_WITH_STATIC_RUNTIME_LIBS)
@@ -164,16 +146,7 @@ if (BUILD_WITH_STATIC_RUNTIME_LIBS)
     else()
         message(SEND_ERROR "Do not know how to statically link against the standard library with this compiler.")
     endif()
-
-    if (BUILD_INSTALLER)
-        install_pdb_files(rttr_core_s)
-        install(TARGETS rttr_core_s EXPORT rttr_targets
-                RUNTIME       DESTINATION ${RTTR_RUNTIME_INSTALL_DIR}
-                LIBRARY       DESTINATION ${RTTR_LIBRARY_INSTALL_DIR}
-                ARCHIVE       DESTINATION ${RTTR_ARCHIVE_INSTALL_DIR}
-                FRAMEWORK     DESTINATION ${RTTR_FRAMEWORK_INSTALL_DIR})
-    endif()
-    
+   
     if (BUILD_STATIC)
         add_library(rttr_core_lib_s STATIC ${UnityBuild} ${SRC_FILES} ${HPP_FILES})
         add_library(RTTR::Core_Lib_STL ALIAS rttr_core_lib_s)
@@ -210,25 +183,8 @@ if (BUILD_WITH_STATIC_RUNTIME_LIBS)
             message(SEND_ERROR "Do not know how to statically link against the standard library with this compiler.")
         endif()
         
-        if (BUILD_INSTALLER)
-            install(TARGETS rttr_core_lib_s EXPORT rttr_targets
-                    RUNTIME       DESTINATION ${RTTR_RUNTIME_INSTALL_DIR}
-                    LIBRARY       DESTINATION ${RTTR_LIBRARY_INSTALL_DIR}
-                    ARCHIVE       DESTINATION ${RTTR_ARCHIVE_INSTALL_DIR}
-                    FRAMEWORK     DESTINATION ${RTTR_FRAMEWORK_INSTALL_DIR})
-        endif()
-
     endif()
 endif()
-
-
-if(BUILD_INSTALLER)
-	install(EXPORT rttr_targets
-		DESTINATION ${RTTR_CMAKE_CONFIG_INSTALL_DIR}
-		NAMESPACE RTTR::
-		FILE rttr-config.cmake)
-endif()
-
 
 message(STATUS "Scanning " ${PROJECT_NAME} " module finished!")
 message(STATUS "")

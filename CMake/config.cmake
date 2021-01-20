@@ -53,9 +53,6 @@ endif()
 # in order to group in visual studio the targets into solution filters
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
-#3rd part dependencies dirs
-set(RTTR_3RD_PARTY_DIR "${CMAKE_SOURCE_DIR}/3rd_party")
-
 getNameOfDir(CMAKE_LIBRARY_OUTPUT_DIRECTORY RTTR_TARGET_BIN_DIR)
 is_vs_based_build(VS_BUILD)
 
@@ -102,15 +99,6 @@ elseif(UNIX)
 elseif(WIN32)
   # no such thing as rpath exists
   set(RTTR_EXECUTABLE_INSTALL_RPATH ${RTTR_INSTALL_BINDIR}) # default, has no effect
-endif()
-
-# detect architecture
-if (CMAKE_SIZEOF_VOID_P EQUAL 8)
-    set(RTTR_NATIVE_ARCH 64)
-    message(STATUS "Architecture: x64")
-else()
-    set(RTTR_NATIVE_ARCH 32)
-    message(STATUS "Architecture: x86")
 endif()
 
 # use standard c++ insteaf of extented (-std=c++17 vs. std=gnu++17)
@@ -164,13 +152,3 @@ write_basic_package_version_file(
     VERSION ${RTTR_VERSION_STR}
     COMPATIBILITY AnyNewerVersion
 )
-
-if (BUILD_INSTALLER)
-    install(FILES "${CMAKE_CURRENT_BINARY_DIR}/CMake/rttr-config-version.cmake"
-            DESTINATION ${RTTR_CMAKE_CONFIG_INSTALL_DIR}
-            COMPONENT Devel)
-
-    install(FILES "${LICENSE_FILE}" "${README_FILE}"
-            DESTINATION ${RTTR_ADDITIONAL_FILES_INSTALL_DIR}
-            PERMISSIONS OWNER_READ GROUP_READ WORLD_READ)
-endif()

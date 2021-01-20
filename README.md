@@ -1,16 +1,3 @@
-[![Version](https://badge.fury.io/gh/rttrorg%2Frttr.svg)](https://github.com/rttrorg/rttr/releases/latest)
-[![Travis status](https://travis-ci.org/rttrorg/rttr.svg?branch=master)](https://travis-ci.org/rttrorg/rttr)
-[![Appveyor status](https://ci.appveyor.com/api/projects/status/github/rttrorg/rttr?svg=true&branch=master)](https://ci.appveyor.com/project/acki-m/rttr)
-[![Coverage Status](https://coveralls.io/repos/rttrorg/rttr/badge.svg?branch=master&service=github)](https://coveralls.io/github/rttrorg/rttr)
-[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/783/badge)](https://bestpractices.coreinfrastructure.org/projects/783)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9821799170644782ac8d7885d393e686)](https://www.codacy.com/app/acki-m/rttr?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=rttrorg/rttr&amp;utm_campaign=Badge_Grade)
-[![Documentation](https://img.shields.io/badge/docs-latest-blue.svg)](http://www.rttr.org/doc/master/classes.html)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/rttrorg/rttr/master/LICENSE.txt)
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JQ65KGGCSUZMS)
-
-<a target="_blank" href="http://www.rttr.org/news/major-release-0-9-6">!New Release - 0.9.6!</a>
-==
-
 RTTR
 ====
 > C++ Reflection Library
@@ -100,14 +87,6 @@ Features
 - **no** exceptions (this feature come with cost and is also regularly disabled on consoles)
 - **no** external compiler or tool needed, only standard ISO C++11
 
-Portability
------------
-Tested and compiled with:
-- Microsoft Visual Studio 2015 & 2017 (2013 support till version 0.9.6)
-- GCC 4.8.1
-- Clang 3.7
-- MinGW 4.8.2
-
 License
 -------
 
@@ -135,25 +114,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-
-Installation
-------------
-The installation guide can be found [here][rttr.install].
-
-
-Get Started:
-------------
-Take a look at the [documentation][rttr.docs] or start with the [tutorial][rttr.tutorial].
-
-Donation:
----------
-When you use RTTR and you would like to say thank you for its development,
-I am happy to receive any donation.
-
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JQ65KGGCSUZMS)
-
-<!-- Links -->
-[rttr.docs]: http://www.rttr.org/doc/master/classes.html
-[rttr.install]: http://www.rttr.org/doc/master/building_install_page.html
-[rttr.tutorial]: http://www.rttr.org/doc/master/tutorial_page.html
